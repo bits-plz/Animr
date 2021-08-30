@@ -1,0 +1,9 @@
+<%- include('partials/header') %>
+<div class="ui main text container segment">
+    <div class="ui huge header">COMMENT ON <%= anim.title %></div>
+    <form class="ui form " action="/anim/<%= anim._id %>/comments" method="POST">
+        <div class="field"><label>Comment</label><textarea name='comment' placeholder="Enter something" ></textarea></div>
+        <div class="field"><button type="submit" class="ui purple basic button">SUBMIT</button></div>
+    </form>
+</div>
+<%- include('partials/footer')%>

@@ -1,0 +1,13 @@
+<%- include('partials/header') %>
+<div class="ui main text container segment">
+        <div class="ui huge header">EDIT <%= anim.title%></div>
+        <form class="ui form " action="/anim/<%=anim._id%>?_method=PUT" method="POST">
+            <div class="field"><label>TITLE</label><input type="text" name='anim[title]' value='<%= anim.title%>'></div>
+            <div class="field"><label>IMAGE</label><input type="text" name='anim[image]'value='<%= anim.image%>'></div>
+            <div class="field"><label>Blog Content</label><textarea name='anim[body]'><%= anim.body%></textarea></div>
+            <div class="field"><button type="submit" class="ui purple basic button">SUBMIT</button></div>
+        </form>
+     </div>
+
+</div>
+<%- include('partials/footer')%>

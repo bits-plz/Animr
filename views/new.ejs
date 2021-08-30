@@ -1,0 +1,11 @@
+<%- include('partials/header') %>
+<div class="ui main text container segment">
+    <div class="ui huge header">NEW ANIMr</div>
+    <form class="ui form " action="/anim" method="POST">
+        <div class="field"><label>TITLE</label><input type="text" name='anim[title]' placeholder="title"></div>
+        <div class="field"><label>IMAGE</label><input type="text" name='anim[image]' placeholder="image"></div>
+        <div class="field"><label>ANIM Content</label><textarea name='anim[body]' placeholder="Enter something" ></textarea></div>
+        <div class="field"><button type="submit" class="ui purple basic button">SUBMIT</button></div>
+    </form>
+</div>
+<%- include('partials/footer')%>

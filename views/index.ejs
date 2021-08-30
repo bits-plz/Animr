@@ -1,0 +1,40 @@
+<%- include('partials/header')%>
+    <div class="ui main text container" style="float: left; margin-top: 7em; background: none;" >
+        <div class="ui top attached segment" id='anim'>
+            <div class="ui divided items" style="margin:12px 0">
+                <% anims.forEach((anim)=>{%>
+                    <div class="item">
+                        <div class="image">
+                            <img src='<%= anim.image%>'>
+                        </div>
+                        <div class="content">
+                            <a href="/anim/<%=anim._id%>"><%=anim.title%></a>
+                            <div class="meta">
+                                <span><%= anim.created.toDateString()%></span>
+                            </div>
+                            <div class="description">
+                                <% if(anim.body){ %>
+                                <p><%- anim.body.substring(0,100)%>...</p>
+                                <% } %>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <a href="/anim/<%=anim._id%>"><i class="angle double right icon"></i></a>
+                        </div>
+                    </div>
+                <%})%>
+            </div>
+        </div>
+    </div>
+    <div class="ui main text container segment" id='shower' style="height: 50vh;">
+        <div class="ui huge header">MORE TO COME HERE</div>
+        <div class="ui top attached ">
+            <div class="item">
+                i designed the site to share and comment on anime and integrated it with 
+                jikan ,it's great..
+            </div>
+        </div>
+    </div>
+
+
+<%-include('partials/footer')%>

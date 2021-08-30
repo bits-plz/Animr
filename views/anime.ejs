@@ -1,0 +1,56 @@
+<%- include('partials/animheader')%>
+<div class="ui main text container" style="float:left; margin-top: 7em;" id='anim'>
+    <div class="ui top attached segment" id='goleft'>
+        <div class="ui divided items">
+            <% anims.forEach((anim)=>{ %>
+                <div class="item"  id='informat'>
+                    <div class="image align-left">
+                        <img src='<%= anim.image_url%>' style="width:140.2px ; height: 200px;" id="ugot" >
+                    </div>
+                    <div>
+                        <a href="<%= anim.url %>"><%= anim.title%></a>
+                        <% if(anim.start_date){%><h4> STARt: <%= anim.start_date %></h4><% }%>
+                        <div class="description" >
+                            <h4 id='mal_id'>MAL_ID: <%= anim.mal_id%></h4>
+                        </div>
+                        <% if(anim.synopsis) {%>
+                        <div class="description1">
+                            <h4><%= anim.synopsis.substring(0,20)%>...</h4>
+                            <h4 style="display:none;"> <%= anim.synopsis.substring(20,anim.synopsis.length-1)%>  </h4>
+                        </div>
+                        <%}%>
+                        <a href="<%= anim.url %>"><i class="angle double right icon"></i></a>
+                    </div>
+                </div>
+            <%})%>
+        </div>
+    </div>
+</div>
+<div  style="right:20px; top:55px;position:fixed;">
+    <form action="/anim/anime" method="POST">
+        <div class="ui icon input">
+            <input type="text " placeholder="SEARCH ANIME" style="width: 40vw;" name="sname">
+            <i class="icon search" style="font-size: 1em"></i>
+        </div>
+    </form>
+ 
+</div>
+
+<div class="ui main text container segment" id='shower1'>
+    <div class="ui huge header" id='titleA' ><%= anims[0].title%></div>
+    <div class="ui top attached ">
+        <div class="item">
+            <img class="ui centered rounded image "  id='maincon' src='<%= anims[0].image_url%>' style="height: 319px;">
+            <div class="description" id='mal_id' >
+                <h4 id='mal_idA'>MAL_Id:<%= anims[0].mal_id%></h4>
+            </div>
+            <div class="description">
+                <h4 id='desc'><%= anims[0].synopsis%></h4>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script src="/scripts/show.js"></script>
+<%- include('partials/footer')%>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ANIMr</title>
+    <link rel='stylesheet' type='text/css'href='https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css'>
+    <script src="https://code.jquery.com/jquery-3.5.0.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/stylesheets/app.css" type="text/css">
+    <link href='https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css' type="text/css" rel="stylesheet">
+</head>
+<nav>
+<div class="ui inverted menu" style="position: fixed; width: 100vw; z-index: 1;" style="width: 100vh; margin: 0 auto;">
+    <div class="ui grid " style="width: 100%; margin: 0;">
+        <div class="two column row" style="width: 100%; margin: 0;padding: 0;">
+            <div class= "left floated column" style="width: 50%;">
+                <div class="header item" style="color: orange;"><i class="location arrow icon" style="color: orange;"></i><strong>ANIMr</strong></div>
+            </div>
+            <div class="right flaoted column" style="margin:auto;width: 50%;">
+                <div class="ui container"  id='menu' style="display:inline-flex;flex-direction: row;justify-content: flex-end; ">
+                        <a href="/" class='item' >HOME</a>
+                        <a href="/anim/anime" class="item" >ANIME</a>
+                        <a href="/anim/whatsin" class="item" >ABOUT</a>
+                        <% if(!currentUser){ %>
+                            <a href="/signup" class="item">SIGNUP</a>
+                            <a href="/login" class="item">LOGIN</a>
+                        <%} else{ %>
+                                <a href="/logout" class="item">LOGOUT</a>
+                                <a href="/anim/new" class='item'>NEW ANIMr</a>
+                                <a href="#" class="item ui blue basic button" ><%= currentUser.username%></a>
+                                <% }%>
+                      </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+<div class="container">
+    <% if(error && error.length>0){%>
+        <div class="alert alert-danger" role="alert" style="transform: translateY(80px);"> <%= error%></div>
+    <%}%>
+    <% if(success && success.length>0){%>
+        <div class="alert alert-success" role="alert" style="transform: translateY(80px);"><%= success%></div>
+    <%}%>
+</div>
+<script>
+    var icon=document.querySelector('#showicon')
+    icon.addEventListener('click',()=>{
+        document.querySelectorAll('.item').forEach((item)=>{
+            if(item.classList.contains('show')){
+                
+                item.classList.remove('show')
+            }
+            else{
+                item.classList.add('show')
+            }
+         
+        })
+    })
+</script>
+<body>   
