@@ -59,7 +59,7 @@ async function main(){
   app.use(authRoutes)
 
 
-  app.listen(PORT,()=>console.log('running on port 3000........'))
+  app.listen(PORT,()=>console.log(`running on port: ${PORT} `))
 
 }
 main().catch(err => console.log(err))
