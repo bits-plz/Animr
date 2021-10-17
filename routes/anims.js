@@ -14,7 +14,7 @@ router.get('/',(req,res)=>{
 
 })
 
-const API_KEY = process.env.API_KEY || '444b1b242emsh1080f007fc26c87p1e4d44jsnb6852982ab16'
+const API_KEY = process.env.API_KEY 
 router.get('/new',isLoggedIn,(req,res)=>{
     res.render('new',{author:req.user});
 })
