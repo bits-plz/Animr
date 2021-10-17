@@ -14,7 +14,7 @@ var session=require('express-session')
 var MongoStore=require('connect-mongo')(session)
 ///////////////////////////////////SETUP
 
-const DATABASE_URL = process.env.DATABASE_URL || 'mongodb+srv://bits_plz:QpKqUnFS4Zy2BdF@cluster0-g1011.mongodb.net/test?retryWrites=true&w=majority'
+const DATABASE_URL = process.env.DATABASE_URL
 var app=express()
 /////express setup others
 
