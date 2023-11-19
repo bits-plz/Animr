@@ -24,8 +24,9 @@ const PORT = process.env.PORT || 3000
 async function main(){
   app.use(parser.urlencoded({extended:true}));
   app.use(expressSanitizer())
+  app.use(express.static(path.join(__dirname, 'public'))); 
+  app.set('views', path.join(__dirname, 'views'));
   app.set('view engine' , 'ejs');
-  app.use(express.static('public')); 
   app.use(methodOverride('_method'));
   
   mongoose.connect(DATABASE_URL);
