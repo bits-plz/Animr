@@ -2,8 +2,8 @@ var express=require('express');
 var router=express.Router();
 var Anim=require('../models/anim');
 var request=require('request')
-router.get('/',(req,res)=>{
-    Anim.find({},(err,anims)=>{
+router.get('/',async (req,res)=>{
+    Anim.find({}, {} , { sort : { created : -1  } }, (err,anims)=>{
         if(err) {
             console.log(err)
         }
