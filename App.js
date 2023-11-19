@@ -28,8 +28,7 @@ async function main(){
   app.use(express.static('public')); 
   app.use(methodOverride('_method'));
   
-  mongoose.set('useUnifiedTopology',true);
-  mongoose.connect(DATABASE_URL,{useNewUrlParser:true});
+  mongoose.connect(DATABASE_URL);
   app.use(session({
     secret:'RustyIsTheBest and cutest dog',
     resave:true,saveUninitialized:true,
@@ -62,5 +61,9 @@ async function main(){
   app.listen(PORT,()=>console.log(`running on port: ${PORT} `))
 
 }
-main().catch(err => console.log(err))
+
+mongoose.connect(DATABASE_URL , {useNewUrlParser : true , useUnifiedTopology : true}).then(() => {
+  main().catch(err => console.log(err))
+})
+
 
