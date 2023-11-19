@@ -1,5 +1,6 @@
 ////////////////////////////REQUIREMENTS
 var express=require('express')
+var path = require("path")
 var parser=require('body-parser')
 var mongoose=require('mongoose')
 var methodOverride=require('method-override')
